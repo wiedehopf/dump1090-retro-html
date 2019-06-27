@@ -346,12 +346,12 @@ PlaneObject.prototype.updateData = function(receiver_timestamp, data) {
         this.rssi       = data.rssi;
 	this.last_message_time = receiver_timestamp - data.seen;
         
-        if (typeof data.altitude !== "undefined")
-		this.altitude	= data.altitude;
-        if (typeof data.vert_rate !== "undefined")
-		this.vert_rate	= data.vert_rate;
-        if (typeof data.speed !== "undefined")
-		this.speed	= data.speed;
+        if (typeof data.alt_baro !== "undefined")
+		this.altitude	= data.alt_baro;
+        if (typeof data.baro_rate !== "undefined")
+		this.vert_rate	= data.baro_rate;
+        if (typeof data.gs !== "undefined")
+		this.speed	= data.gs;
         if (typeof data.track !== "undefined")
                 this.track	= data.track;
         if (typeof data.lat !== "undefined") {
