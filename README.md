@@ -19,3 +19,7 @@ http://IP-ADDRESS/dump1090 (replace IP-ADDRESS with the actuall IP address)
 ```
 sudo bash -c "$(wget -q -O - https://raw.githubusercontent.com/wiedehopf/dump1090-retro-html/master/uninstall.sh)"
 ```
+
+## Screenshot
+
+![Screenshot](https://raw.githubusercontent.com/wiedehopf/adsb-wiki/images/screenshots/dump1090-fa-retro.png)
