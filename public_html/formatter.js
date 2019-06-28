@@ -15,7 +15,7 @@ function format_track_brief(track) {
 	if (track === null){
 		return "";
 	}
-	
+
 	return Math.round(track);
 }
 
@@ -24,7 +24,7 @@ function format_track_long(track) {
 	if (track === null){
 		return "n/a";
 	}
-	
+
 	var trackDir = Math.floor((360 + track % 360 + 22.5) / 45) % 8;
 	return Math.round(track) + DEGREES + NBSP + "(" + TrackDirections[trackDir] + ")";
 }
@@ -33,19 +33,19 @@ function format_track_long(track) {
 // brief will always show either Metric or Imperial
 function format_altitude_brief(alt, vr) {
 	var alt_text;
-	
+
 	if (alt === null){
 		return "";
 	} else if (alt === "ground"){
 		return "ground";
 	}
-	
+
 	if (Metric) {
 		alt_text = Math.round(alt * 0.3048) + NBSP; // Altitude to meters
 	} else {
 		alt_text = Math.round(alt) + NBSP;
 	}
-	
+
 	// Vertical Rate Triangle
 	if (vr > 128){
 		return alt_text + UP_TRIANGLE;
@@ -66,7 +66,7 @@ function _alt_to_unit(alt, m) {
 
 function format_altitude_long(alt, vr) {
 	var alt_text = "";
-	
+
 	if (alt === null) {
 		return "n/a";
 	} else if (alt === "ground") {
@@ -80,7 +80,7 @@ function format_altitude_long(alt, vr) {
 	if (ShowOtherUnits) {
 		alt_text = alt_text + ' | ' + _alt_to_unit(alt, !Metric);
 	}
-	
+
 	if (vr > 128) {
 		return UP_TRIANGLE + NBSP + alt_text;
 	} else if (vr < -128) {
@@ -95,7 +95,7 @@ function format_speed_brief(speed) {
 	if (speed === null) {
 		return "";
 	}
-	
+
 	if (Metric) {
 		return Math.round(speed * 1.852); // knots to kilometers per hour
 	} else {
@@ -124,7 +124,7 @@ function format_speed_long(speed) {
 	if (ShowOtherUnits) {
 		speed_text = speed_text + ' | ' + _speed_to_unit(speed, !Metric);
 	}
-	
+
 	return speed_text;
 }
 
