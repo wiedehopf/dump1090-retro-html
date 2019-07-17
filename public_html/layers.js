@@ -10,7 +10,8 @@ function createBaseLayers() {
 	var us = [];
 
 	world.push(new ol.layer.Tile({
-		source: new ol.source.OSM({"url" : "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"}),
+		//source: new ol.source.OSM({"url" : "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"}),
+		source: new ol.source.OSM(),
 		name: 'osm',
 		title: 'OpenStreetMap',
 		type: 'base',
