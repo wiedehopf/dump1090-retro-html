@@ -33,4 +33,4 @@ systemctl restart lighttpd
 
 echo --------------
 echo --------------
-echo "All done! Webinterface available at http://$(ip route | grep -m1 -o -P 'src \K[0-9,.]*')/dump1090"
+echo "All done! Webinterface available at $(ip route | grep -m1 -o -P 'src \K[0-9,.]*')/dump1090"
