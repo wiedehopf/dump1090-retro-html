@@ -5,7 +5,7 @@ Old dump1090 webinterface for dump1090-fa
 ## Installation
 
 ```
-sudo bash -c "$(wget -q -O - https://raw.githubusercontent.com/wiedehopf/dump1090-retro-html/master/uninstall.sh)"
+sudo bash -c "$(wget -q -O - https://raw.githubusercontent.com/wiedehopf/dump1090-retro-html/master/install.sh)"
 ```
 
 ## URL for the webinterface
