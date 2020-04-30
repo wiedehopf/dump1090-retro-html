@@ -29,8 +29,24 @@ cp LICENSE $ipath
 cp 88-dump1090-retro-html.conf /etc/lighttpd/conf-available
 lighty-enable-mod dump1090-retro-html >/dev/null
 
+srcdir=/run/dump1090-fa/
+
+if [[ -f /run/dump1090-fa/aircraft.json ]]; then
+    srcdir=/run/dump1090-fa/
+elif [[ -f /run/readsb/aircraft.json ]]; then
+    srcdir=/run/readsb/
+elif [[ -f /run/adsbexchange-feed/aircraft.json ]]; then
+    srcdir=/run/adsbexchange-feed/
+elif [[ -f /run/dump1090/aircraft.json ]]; then
+    srcdir=/run/dump1090/
+elif [[ -f /run/dump1090-mutability/aircraft.json ]]; then
+    srcdir=/run/dump1090-mutability/
+fi
+
+sed -i -e "s?SRCDIR?$srcdir?g" /etc/lighttpd/conf-available/88-dump1090-retro-html.conf
+
 systemctl restart lighttpd
 
 echo --------------
 echo --------------
-echo "All done! Webinterface available at $(ip route | grep -m1 -o -P 'src \K[0-9,.]*')/dump1090"
+echo "All done! Webinterface available at http://$(ip route | grep -m1 -o -P 'src \K[0-9,.]*')/dump1090"
