@@ -26,6 +26,7 @@ fi
 cp -T -r public_html $ipath
 cp LICENSE $ipath
 
+rm -f /etc/lighttpd/conf-enabled/89-dump1090.conf
 cp 88-dump1090-retro-html.conf /etc/lighttpd/conf-available
 lighty-enable-mod dump1090-retro-html >/dev/null
 
